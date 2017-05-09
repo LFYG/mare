@@ -325,10 +325,12 @@ export class BackendModem extends EventEmitter {
         const valueFeild = tv.value();
         const result = {result: valueFeild};
         if (data.error) {
+            const value = valueFeild.value;
+            const text = value.description || String(value);
             result.exceptionDetails = {
                 columnNumber: 0,
                 lineNumber: 0,
-                text: valueFeild.value.description,
+                text: text,
                 exceptionId: new Date().getTime(),
             };
         }
@@ -348,10 +350,12 @@ export class BackendModem extends EventEmitter {
         const valueFeild = tv.value();
         const result = {result: valueFeild};
         if (data.error) {
+            const value = valueFeild.value;
+            const text = value.description || String(value);
             result.exceptionDetails = {
                 columnNumber: 0,
                 lineNumber: 0,
-                text: valueFeild.value.description,
+                text: text,
                 exceptionId: new Date().getTime(),
             };
         }
