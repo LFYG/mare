@@ -10,7 +10,7 @@ export default class OverviewPage extends React.Component {
     }
 
     componentDidMount() {
-        postal.pub('document-title', '运行状态');
+        postal.pub('document-title', 'Overview');
     }
 
     render() {

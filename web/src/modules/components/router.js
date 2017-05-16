@@ -11,14 +11,14 @@ const pages = [
     {
         key: 'debug',
         component: DebugPage,
-        props: {title: '调试页'},
+        props: {title: 'Debug'},
         match: (url) => {
             return url === '/debug';
         },
     },
     {
         key: 'overview',
-        props: {title: '运行状态'},
+        props: {title: 'Overview'},
         component: OverviewPage,
         match: (url) => {
             return url === '/overview';
@@ -27,14 +27,14 @@ const pages = [
     {
         key: 'config',
         component: ConfigPage,
-        props: {title: '查看服务配置'},
+        props: {title: 'View Config'},
         match: (url) => {
             return url === '/config';
         },
     },
     {
         key: 'sessionIndex',
-        props: {title: '会话列表'},
+        props: {title: 'Session List'},
         component: SessionIndexPage,
         match: (url) => {
             return url === '/session/';
@@ -42,7 +42,7 @@ const pages = [
     },
     {
         key: 'sessionNew',
-        props: {title: '新建会话'},
+        props: {title: 'New Session'},
         component: SessionNewPage,
         match: (url) => {
             return url === '/session/new';
@@ -50,7 +50,7 @@ const pages = [
     },
     {
         key: 'sessionDetail',
-        props: {title: '会话详情'},
+        props: {title: 'Session Detail'},
         component: SessionDetailPage,
         match: (url) => {
             return url.startsWith('/session/id/');
@@ -58,7 +58,7 @@ const pages = [
     },
     {
         key: 'error',
-        props: {title: '错误'},
+        props: {title: 'Error'},
         component: ErrorPage,
         match: (url) => {
             return url === '/error';
@@ -66,7 +66,7 @@ const pages = [
     },
     {
         key: 'error404',
-        props: {title: '错误'},
+        props: {title: 'Error'},
         component: ErrorPage,
         match: () => {
             return true;

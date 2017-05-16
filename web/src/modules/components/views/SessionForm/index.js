@@ -56,7 +56,7 @@ export default class SessionForm extends React.Component {
                             </td>
                         </tr>
                         <tr>
-                            <td className='form-label'>标题</td>
+                            <td className='form-label'>Title</td>
                             <td className='form-input'>
                                 <input defaultValue={value.title}
                                     onChange={this.onTitleInputChange}/>

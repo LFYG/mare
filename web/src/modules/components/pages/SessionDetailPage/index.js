@@ -14,7 +14,7 @@ export default class SessionDetailPage extends React.Component {
 
     componentDidMount() {
         this.load();
-        postal.pub('document-title', '会话详情');
+        postal.pub('document-title', 'Session Detail');
     }
 
     load = async () => {

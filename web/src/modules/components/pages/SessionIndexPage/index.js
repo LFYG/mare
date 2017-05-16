@@ -12,7 +12,7 @@ export default class SessionIndexPage extends React.Component {
     }
 
     componentDidMount() {
-        postal.pub('document-title', '会话列表');
+        postal.pub('document-title', 'Session List');
     }
 
     render() {

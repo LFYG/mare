@@ -10,7 +10,7 @@ export default class ConfigPage extends React.Component {
     }
 
     componentDidMount() {
-        postal.pub('document-title', '查看服务配置');
+        postal.pub('document-title', 'View Config');
     }
 
     render() {

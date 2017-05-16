@@ -16,7 +16,7 @@ export default class SessionNewPage extends React.Component {
     }
 
     componentDidMount() {
-        postal.pub('document-title', '新建会话');
+        postal.pub('document-title', 'New Session');
     }
 
     save = async (value) => {
@@ -27,7 +27,7 @@ export default class SessionNewPage extends React.Component {
             const link = <a href={url} onClick={href(url)}>点击转到会话列表</a>;
             const alert = {
                 type: 'ok',
-                desc: <span>创建会话 {value.id} 成功，{link}。</span>,
+                desc: <span>Create session {value.id} success，{link}.</span>,
             };
             this.setState({alert, done: true});
             return;
@@ -36,7 +36,7 @@ export default class SessionNewPage extends React.Component {
         if (result.existed) {
             const alert = {
                 type: 'error',
-                desc: '会话 ID 已存在',
+                desc: 'Session ID existed',
             };
             this.setState({alert});
             return;

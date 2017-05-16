@@ -25,7 +25,7 @@ export default class DefaultLayout extends React.Component {
                         onClick: href('/overview'),
                         className: pathname === '/overview' ? active : '',
                     };
-                    <a {...props}>运行状态</a>;
+                    <a {...props}>Overview</a>;
                 }}
                 {do {
                     const props = {
@@ -33,7 +33,7 @@ export default class DefaultLayout extends React.Component {
                         onClick: href('/session/'),
                         className: pathname.startsWith('/session/') ? active : '',
                     };
-                    <a {...props}>会话列表</a>;
+                    <a {...props}>Session List</a>;
                 }}
                 {do {
                     const props = {
@@ -41,7 +41,7 @@ export default class DefaultLayout extends React.Component {
                         onClick: href('/config'),
                         className: pathname.startsWith('/config') ? active : '',
                     };
-                    <a {...props}>查看配置</a>;
+                    <a {...props}>View Config</a>;
                 }}
             </Navigation>
         );

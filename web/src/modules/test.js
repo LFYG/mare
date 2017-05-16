@@ -29,5 +29,5 @@ const testcase = (title, func) => {
 };
 
 testcase('hello', async (test) => {
-    test.ok('测试通过');
+    test.ok('pass');
 });

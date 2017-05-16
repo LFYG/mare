@@ -14,7 +14,7 @@ export default class DebugPage extends React.Component {
 
     componentDidMount() {
         this.load();
-        postal.pub('document-title', '调试');
+        postal.pub('document-title', 'Debug');
     }
 
     load = async () => {

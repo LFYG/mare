@@ -13,13 +13,13 @@ export default class ErrorPage extends React.Component {
     }
 
     componentDidMount() {
-        postal.pub('document-title', '错误');
+        postal.pub('document-title', 'Error');
     }
 
     render() {
         const error = Object.assign({
-            title: '错误',
-            message: '404 页面不存在',
+            title: 'Error',
+            message: '404 page not found',
         }, this.props.error);
 
         return (

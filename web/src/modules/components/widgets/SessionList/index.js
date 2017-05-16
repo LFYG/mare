@@ -57,18 +57,18 @@ export default class SessionList extends React.Component {
             <div>
                 {do {
                     if (item.frontend.isConnected) {
-                        <span className='text-success'>前端已连接</span>;
+                        <span className='text-success'>fronend connected</span>;
                     } else {
                         <a href={url} target='_blank'
-                            onClick={this.onFrontendLinkClick(url, item.title)}>打开前端</a>;
+                            onClick={this.onFrontendLinkClick(url, item.title)}>open frontend</a>;
                     }
                 }}
                 <span> ~ </span>
                 {do {
                     if (item.backend.isConnected) {
-                        <span className='text-success'>后端已连接</span>;
+                        <span className='text-success'>backend connected</span>;
                     } else {
-                        <span>正在监听中</span>;
+                        <span>listening</span>;
                     }
                 }}
             </div>
@@ -81,7 +81,7 @@ export default class SessionList extends React.Component {
 
     renderDetailCell = (value, item) => {
         const url = `/session/id/${item.id}`;
-        return <a href={url}>详情</a>;
+        return <a href={url}>detail</a>;
     }
 
     render() {
@@ -94,10 +94,10 @@ export default class SessionList extends React.Component {
                     <TableHeader name='id'
                         cellFormatter={this.renderIdCell}
                         style={{width: '220px'}}>ID</TableHeader>
-                    <TableHeader name='title'>标题</TableHeader>
+                    <TableHeader name='title'>Title</TableHeader>
                     <TableHeader name='_debugger'
                         style={{width: '220px'}}
-                        cellFormatter={this.renderDebuggerCell}>调试器</TableHeader>
+                        cellFormatter={this.renderDebuggerCell}>Debugger</TableHeader>
                 </DataTable>
             </div>
         );

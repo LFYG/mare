@@ -38,8 +38,8 @@ export default class ConfigList extends React.Component {
                 <table className={`mdl-data-table mdl-js-data-table ${style.table}`}>
                     <thead>
                         <tr>
-                            <th>配置名</th>
-                            <th>配置值</th>
+                            <th>Key</th>
+                            <th>Value</th>
                         </tr>
                     </thead>
                     <tbody>

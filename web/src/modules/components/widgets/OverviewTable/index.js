@@ -7,7 +7,7 @@ import style from './index.scss';
 const uptimeString = (seconds) => {
     const {h, m, s} = s2hms(seconds);
     const p = (v) => String(Math.round(v)).padLeft(2, '0');
-    return `${p(h)} 小时 ${p(m)} 分 ${p(s)} 秒`;
+    return `${p(h)} hours ${p(m)} minutes ${p(s)} seconds`;
 };
 
 export default class OverviewTable extends React.Component {
@@ -39,17 +39,17 @@ export default class OverviewTable extends React.Component {
         return [
             {
                 key: 'hostname',
-                label: '主机名',
+                label: 'Hostname',
                 value: data.hostname,
             },
             {
                 key: 'os',
-                label: '操作系统',
+                label: 'OS',
                 value: data.os,
             },
             {
                 key: 'serverTime',
-                label: '系统时间',
+                label: 'Server Time',
                 value: new Date(data.time).toString(),
             },
             {
@@ -59,7 +59,7 @@ export default class OverviewTable extends React.Component {
             },
             {
                 key: 'uptime',
-                label: '运行时长',
+                label: 'Uptime',
                 value: uptimeString(data.uptime),
             },
         ];
@@ -70,7 +70,7 @@ export default class OverviewTable extends React.Component {
         return [
             {
                 key: 'version',
-                label: '版本',
+                label: 'Version',
                 value: data.version,
             },
             {
@@ -80,17 +80,17 @@ export default class OverviewTable extends React.Component {
             },
             {
                 key: 'frontendListen',
-                label: '前端监听地址',
+                label: 'Frontend Listen',
                 value: `ws://${frontend.host}:${frontend.port}`,
             },
             {
                 key: 'backendListen',
-                label: '后端监听地址',
+                label: 'Backend Listen',
                 value: `socket://${backend.host}:${backend.port}`,
             },
             {
                 key: 'uptime',
-                label: '运行时长',
+                label: 'Uptime',
                 value: uptimeString(data.uptime),
             },
         ];
@@ -100,17 +100,17 @@ export default class OverviewTable extends React.Component {
         return [
             {
                 key: 'total',
-                label: '合计',
+                label: 'Total',
                 value: data.total,
             },
             {
                 key: 'activiting',
-                label: '活动',
+                label: 'Activiting',
                 value: data.activiting,
             },
             {
                 key: 'nonactiviting',
-                label: '非活动',
+                label: 'Non Activiting',
                 value: data.total - data.activiting,
             },
         ];
@@ -120,7 +120,7 @@ export default class OverviewTable extends React.Component {
         return [
             {
                 key: 'total',
-                label: '合计',
+                label: 'Total',
                 value: data.total,
             },
             {
@@ -151,7 +151,7 @@ export default class OverviewTable extends React.Component {
                 shadow={0} rows={items}>
                 <TableHeader name='label'
                     style={{width: '100px'}}
-                    cellFormatter={this.renderLabelCell}>系统</TableHeader>
+                    cellFormatter={this.renderLabelCell}>System</TableHeader>
                 <TableHeader name='value'
                     cellFormatter={this.renderValueCell}></TableHeader>
             </DataTable>
@@ -165,10 +165,10 @@ export default class OverviewTable extends React.Component {
                 shadow={0} rows={items}>
                 <TableHeader name='label'
                     style={{width: '100px'}}
-                    cellFormatter={this.renderLabelCell}>服务</TableHeader>
+                    cellFormatter={this.renderLabelCell}>Server</TableHeader>
                 <TableHeader name='value'
                     cellFormatter={this.renderValueCell}>
-                    <a className={style.extra} href='/config'>查看配置</a>
+                    <a className={style.extra} href='/config'>View Config</a>
                 </TableHeader>
             </DataTable>
         );
@@ -181,11 +181,11 @@ export default class OverviewTable extends React.Component {
                 shadow={0} rows={items}>
                 <TableHeader name='label'
                     style={{width: '100px'}}
-                    cellFormatter={this.renderLabelCell}>会话</TableHeader>
+                    cellFormatter={this.renderLabelCell}>Session</TableHeader>
                 <TableHeader name='value'
                     cellFormatter={this.renderValueCell}>
                     <a className={style.extra} href='/session/'>
-                        查看全部
+                        View All
                     </a>
                 </TableHeader>
             </DataTable>
@@ -199,11 +199,11 @@ export default class OverviewTable extends React.Component {
                 shadow={0} rows={items}>
                 <TableHeader name='label'
                     style={{width: '100px'}}
-                    cellFormatter={this.renderLabelCell}>项目</TableHeader>
+                    cellFormatter={this.renderLabelCell}>Projects</TableHeader>
                 <TableHeader name='value'
                     cellFormatter={this.renderValueCell}>
                     <a className={style.extra} href='/project/'>
-                        查看全部
+                        View All
                     </a>
                 </TableHeader>
             </DataTable>
