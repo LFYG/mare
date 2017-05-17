@@ -5,8 +5,6 @@ Mare - Lua 5.3 Debugger
 
 Check out the website [mare.ejoy.com](http://mare.ejoy.com/) for more information.
 
-*currently the website in Chinese only*
-
 Relative Projects
 -----------------
 
