@@ -1,6 +1,6 @@
 {
   "name": "mare-web",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "devDependencies": {
     "autoprefixer": "6.7.6",
     "babel-cli": "6.23.0",
