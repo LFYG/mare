@@ -63,7 +63,7 @@ const httpServer = http.createServer(app);
 
 // startup
 const address = liburl.parse(bc.localServerUrl);
-console.info(`服务器地址：http://${address.host}/\n`);
+console.info(`Server: http://${address.host}/\n`);
 httpServer.listen(address.port, address.hostname, (error) => {
     if (error) {
         console.error(error);

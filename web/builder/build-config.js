@@ -34,7 +34,7 @@ const resolveHome = (path) => {
 };
 config.devtoolsFrontend = resolveHome(config.devtoolsFrontend);
 
-console.info('当前构建配置');
+console.info('Build config:');
 console.info(JSON.stringify(config, null, 4));
 console.info('');
 export default config;

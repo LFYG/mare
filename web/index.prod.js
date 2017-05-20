@@ -29,8 +29,8 @@ app.use(historyApiFallback(fallback));
 
 // startup
 const address = liburl.parse(localServerUrl);
-console.info('当前以产品模式运行');
-console.info(`* 服务器地址：http://${address.host}/\n`);
+console.info('Run in production mode');
+console.info(`* Server: http://${address.host}/\n`);
 httpServer.listen(address.port, address.hostname, (error) => {
     if (error) {
         console.error(error);

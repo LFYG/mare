@@ -23,9 +23,9 @@ const bridge = new Bridge(config);
 
 const frontendAddress = `${config.frontend.host}:${config.frontend.port}`;
 const backendAddress = `${config.backend.host}:${config.backend.port}`;
-console.info('当前以开发模式运行');
-console.info(`* HTTP 服务器地址: http://${frontendAddress}/`);
-console.info(`* Lua 服务器地址: socket://${backendAddress}/`);
+console.info('Run in development mode');
+console.info(`* HTTP Server: http://${frontendAddress}/`);
+console.info(`* Lua Server: socket://${backendAddress}/`);
 bridge.mount(webapp);
 bridge.start();
 

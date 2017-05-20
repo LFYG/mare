@@ -99,9 +99,9 @@ const runBabelBuild = () => {
         await runWebpackBuild();
         await runBabelBuild();
     } catch (e) {
-        console.error('构建失败');
+        console.error('Build fail.');
         console.error(e);
         return;
     }
-    console.info('构建完毕');
+    console.info('Build success.');
 })();
