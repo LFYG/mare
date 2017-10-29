@@ -2,11 +2,19 @@ import autoprefixer from 'autoprefixer';
 import libpath from 'path';
 import webpack from 'webpack';
 
+const postcssLoader = {
+    loader: 'postcss-loader',
+    options: {
+        plugins: () => [
+            autoprefixer(),
+        ],
+    },
+};
+
 export default {
 
-    debug: false,
     profile: false,
-    devtool: null,
+    devtool: false,
 
     entry: {
         app: [
@@ -27,8 +35,9 @@ export default {
     },
 
     resolve: {
-        root: [
+        modules: [
             libpath.resolve('./src/modules/'),
+            'node_modules',
         ],
         alias: {
             externals: libpath.resolve('./src/externals/'),
@@ -36,12 +45,14 @@ export default {
     },
 
     plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
         }),
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
-        new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: 'vendor.js',
+        }),
+        new webpack.optimize.UglifyJsPlugin(),
     ],
 
     module: {
@@ -49,47 +60,45 @@ export default {
         loaders: [
             {
                 test: /\.js$/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 query: {
                     presets: ['env', 'stage-0', 'react'],
                     compact: false,
                 },
             },
             {
-                test: /\.json$/,
-                loader: 'json',
-            },
-            {
                 test: /\.html$/,
-                loader: 'html',
+                loader: 'html-loader',
             },
             {
                 test: /\.svg$/,
-                loader: 'url',
+                loader: 'url-loader',
             },
             {
                 test: /\.scss$/,
-                loaders: [
-                    'style',
-                    'css',
-                    'postcss',
-                    'sass',
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            localIdentName: '[name]-[local]-[hash:base64:5]',
+                        },
+                    },
+                    postcssLoader,
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            errLogToConsole: true,
+                            outputStyle: 'expanded',
+                            includePaths: [
+                                libpath.resolve('./src/modules/'),
+                            ],
+                        },
+                    },
                 ],
             },
         ],
 
-    },
-
-    sassLoader: {
-        errLogToConsole: true,
-        outputStyle: 'compressed',
-        includePaths: [
-            libpath.resolve('./src/modules/'),
-        ],
-    },
-
-    postcss() {
-        return [autoprefixer];
     },
 
     node: {

@@ -2,11 +2,18 @@ import autoprefixer from 'autoprefixer';
 import libpath from 'path';
 import webpack from 'webpack';
 
+const postcssLoader = {
+    loader: 'postcss-loader',
+    options: {
+        plugins: () => [
+            autoprefixer(),
+        ],
+    },
+};
+
 export default {
 
-    debug: true,
     profile: false,
-    //devtool: 'cheap-module-eval-source-map',
     devtool: 'source-map',
 
     entry: {
@@ -35,8 +42,9 @@ export default {
     },
 
     resolve: {
-        root: [
+        modules: [
             libpath.resolve('./src/modules/'),
+            'node_modules',
         ],
         alias: {
             externals: libpath.resolve('./src/externals/'),
@@ -44,56 +52,53 @@ export default {
     },
 
     plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
     ],
 
     module: {
 
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 query: {
                     presets: ['env', 'stage-0', 'react', 'react-hmre'],
                     compact: false,
                 },
             },
             {
-                test: /\.json$/,
-                loader: 'json',
-            },
-            {
                 test: /\.html$/,
-                loader: 'html',
+                loader: 'html-loader',
             },
             {
                 test: /\.svg$/,
-                loader: 'url',
+                loader: 'url-loader',
             },
             {
                 test: /\.scss$/,
-                loaders: [
-                    'style',
-                    'css?localIdentName=[name]-[local]-[hash:base64:5]',
-                    'postcss',
-                    'sass',
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            localIdentName: '[name]-[local]-[hash:base64:5]',
+                        },
+                    },
+                    postcssLoader,
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            errLogToConsole: true,
+                            outputStyle: 'expanded',
+                            includePaths: [
+                                libpath.resolve('./src/modules/'),
+                            ],
+                        },
+                    },
                 ],
             },
         ],
 
-    },
-
-    sassLoader: {
-        errLogToConsole: true,
-        outputStyle: 'expanded',
-        includePaths: [
-            libpath.resolve('./src/modules/'),
-        ],
-    },
-
-    postcss() {
-        return [autoprefixer];
     },
 
     node: {
