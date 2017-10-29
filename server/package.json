@@ -2,22 +2,21 @@
   "name": "mare-server",
   "version": "0.2.3",
   "devDependencies": {
-    "babel-cli": "6.23.0",
-    "babel-eslint": "7.1.1",
-    "babel-preset-env": "1.2.1",
-    "babel-preset-stage-0": "6.22.0",
-    "eslint": "3.17.1",
-    "eslint-plugin-babel": "4.1.1"
+    "babel-cli": "6.26.0",
+    "babel-eslint": "8.0.1",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-stage-0": "6.24.1",
+    "eslint": "4.10.0"
   },
   "dependencies": {
-    "body-parser": "1.17.1",
-    "express": "4.15.2",
-    "glob": "7.1.1",
-    "mongodb": "2.2.24",
+    "body-parser": "1.18.2",
+    "express": "4.16.2",
+    "glob": "7.1.2",
+    "mongodb": "2.2.33",
     "msgpack-lite": "0.1.26",
-    "node-uuid": "1.4.7",
+    "node-uuid": "1.4.8",
     "tingodb": "0.5.1",
-    "ws": "1.1.2"
+    "ws": "1.1.4"
   },
   "scripts": {
     "build": "babel-node builder/build.js",
