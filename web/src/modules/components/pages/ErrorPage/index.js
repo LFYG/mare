@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import postal from 'postal';
 import style from './index.scss';
 
 export default class ErrorPage extends React.Component {
 
     static propTypes = {
-        error: React.PropTypes.object,
+        error: PropTypes.object,
     };
 
     constructor(props) {

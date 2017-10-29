@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {href} from 'components/router';
 import {Layout, Navigation, Header} from 'react-mdl';
 import style from './index.scss';
@@ -6,8 +7,8 @@ import style from './index.scss';
 export default class DefaultLayout extends React.Component {
 
     static propTypes = {
-        children: React.PropTypes.any,
-        layoutProps: React.PropTypes.object,
+        children: PropTypes.any,
+        layoutProps: PropTypes.object,
     };
 
     constructor(props) {

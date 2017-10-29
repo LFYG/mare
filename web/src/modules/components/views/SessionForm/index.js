@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Button} from 'react-mdl';
 import style from './index.scss';
 
@@ -10,9 +11,9 @@ const defaultValue = {
 export default class SessionForm extends React.Component {
 
     static propTypes = {
-        defaultValue: React.PropTypes.object,
-        onSubmit: React.PropTypes.func,
-        onCancel: React.PropTypes.func,
+        defaultValue: PropTypes.object,
+        onSubmit: PropTypes.func,
+        onCancel: PropTypes.func,
     };
 
     constructor(props) {
