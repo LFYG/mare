@@ -20,8 +20,8 @@ export class BackendServer extends EventEmitter {
     onServerConnection = (socket) => {
         const ws = new PuppetWebSocket(socket);
         ws.id = wsUtils.id('backend');
-        ws.once('handshake', () => {
-            ws.location = wsUtils.location(ws);
+        ws.once('handshake', (url) => {
+            ws.location = wsUtils.location(url);
             this.emit('connect', ws);
         });
     }

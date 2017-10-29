@@ -4,14 +4,13 @@ import wsUtils from './utils';
 
 export class DummyWebSocket extends EventEmitter {
 
-    constructor(url) {
+    constructor() {
         super();
         this.readyState = WebSocket.OPEN;
         this.socket = {
             remoteAddress: null,
             remotePort: null,
         };
-        this.upgradeReq = {url};
     }
 
     close() {
@@ -22,9 +21,9 @@ export class DummyWebSocket extends EventEmitter {
     }
 
     static fromUrl(url, type) {
-        const ws = new DummyWebSocket(url);
+        const ws = new DummyWebSocket();
         ws.id = wsUtils.id(type);
-        ws.location = wsUtils.location(ws);
+        ws.location = wsUtils.location(url);
         return ws;
     }
 

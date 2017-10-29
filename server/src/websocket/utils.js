@@ -7,8 +7,8 @@ export default {
         return `${prefix}:${uuid.v4()}`;
     },
 
-    location: (ws) => {
-        const url = decodeURIComponent(ws.upgradeReq.url).replace(/\|/, '&');
+    location: (url) => {
+        url = decodeURIComponent(url).replace(/\|/, '&');
         return liburl.parse(url, true);
     },
 

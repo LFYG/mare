@@ -57,7 +57,6 @@ export class PuppetWebSocket extends EventEmitter {
         this.socket = socket;
         this.handshaked = false;
         this.chunk = Buffer.alloc(0);
-        this.upgradeReq = null;
         this.readyState = WebSocket.OPEN;
         this.initSocketListeners();
     }
@@ -93,11 +92,7 @@ export class PuppetWebSocket extends EventEmitter {
     }
 
     doHandShake(url) {
-        const location = liburl.parse(url.trim(), true);
-        this.upgradeReq = {
-            url: location.href,
-        };
-
+        url = liburl.parse(url.trim(), true).href;
         const pkgdata = msgpack.encode(['handshaked', null]);
         const headdata = Buffer.alloc(PACK_HEAD_LEN);
         headdata.writeUIntLE(pkgdata.length, 0, PACK_HEAD_LEN);
@@ -105,7 +100,7 @@ export class PuppetWebSocket extends EventEmitter {
         this.socket.write(pkgdata);
 
         this.handshaked = true;
-        this.emit('handshake');
+        this.emit('handshake', url);
     }
 
     onSocketData = (data) => {

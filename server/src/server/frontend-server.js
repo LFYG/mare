@@ -19,9 +19,9 @@ export class FrontendServer extends EventEmitter {
         this.server.on('connection', this.onServerConnection);
     }
 
-    onServerConnection = (ws) => {
+    onServerConnection = (ws, incomingMessage) => {
         ws.id = wsUtils.id('frontend');
-        ws.location = wsUtils.location(ws);
+        ws.location = wsUtils.location(incomingMessage.url);
         ws.socket = ws._socket;
         this.emit('connect', ws);
     }
