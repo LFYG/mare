@@ -62,7 +62,12 @@ export default {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['env', 'stage-0', 'react', 'react-hmre'],
+                    presets: [
+                        ['env', {'targets': {'browsers': ['last 2 versions']}}],
+                        'stage-0',
+                        'react',
+                        'react-hmre',
+                    ],
                     compact: false,
                 },
             },
