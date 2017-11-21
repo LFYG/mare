@@ -1,9 +1,9 @@
 Mare - Lua 5.3 Debugger
 =======================
 
-![ScreenShot](http://mare.ejoy.com/images/mare.png)
+![ScreenShot](http://mare.js.org/images/mare.png)
 
-Check out the website [mare.ejoy.com](http://mare.ejoy.com/) for more information.
+Check out the website [mare.js.org](http://mare.js.org/) for more information.
 
 Relative Projects
 -----------------
